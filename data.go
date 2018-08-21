@@ -3,12 +3,11 @@ package data
 
 // DB represents a crud interface
 type DB interface {
+	CRUD
 	Close() error
 	Init(...Option) error
 	Options() Options
 	String() string
-	// implements CRUD
-	CRUD
 }
 
 // crud represents a top-level data model
