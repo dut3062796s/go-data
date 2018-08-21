@@ -10,3 +10,4 @@ Note: WIP
 - [ ] top level interfaces like crud
 - [ ] implementations of each package
 - [ ] realtime data interface?
+- [ ] timeseries interface?
