@@ -11,4 +11,4 @@ Note: WIP
 - [ ] implementations of each package
 - [ ] realtime data interface?
 - [ ] timeseries interface?
-
+- [ ] search interface? e.g elasticsearch, lucene
