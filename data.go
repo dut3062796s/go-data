@@ -6,12 +6,18 @@ type DB interface {
 	Close() error
 	Init(...Option) error
 	Options() Options
+	String() string
+	// implements CRUD
+	CRUD
+}
+
+// crud represents a top-level data model
+type CRUD interface {
 	Read(string) (Record, error)
 	Create(Record) error
 	Update(Record) error
 	Delete(string) error
 	Search(...SearchOption) ([]Record, error)
-	String() string
 }
 
 type Option func(*Options)
