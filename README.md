@@ -11,7 +11,7 @@ in a single place with a pluggable architecture.
 
 Go Data takes on the Go Micro approach and will include code generation for CRUD in future.
 
-Note: WIP
+Note: WIP. Much of this will break and change.
 
 ## TODO 
 
