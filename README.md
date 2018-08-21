@@ -7,7 +7,8 @@ Note: WIP
 ## TODO 
 
 - [ ] individual packages for data models {kv, sql, graph, document}
-- [ ] top level interfaces like crud
+- [ ] top level interfaces like crud and stream
 - [ ] implementations of each package
 - [ ] realtime data interface?
 - [ ] timeseries interface?
+
