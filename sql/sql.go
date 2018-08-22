@@ -1,17 +1,21 @@
 // Package sql provides a SQL interface
 package sql
 
+import "database/sql"
+
+// DB is the minimal database connection functionality required. Implemented
+// by *sql.DB.
 type DB interface {
-	Exec(query string, args ...interface{}) error
-	Query(query string, args ...interface{}) (Rows, error)
 	Close() error
+	Exec(query string, args ...interface{}) (sql.Result, error)
+	Ping() error
+	Prepare(query string) (*sql.Stmt, error)
+	Query(query string, args ...interface{}) (*sql.Rows, error)
+	QueryRow(query string, args ...interface{}) *sql.Row
 }
 
-type Rows interface {
-	Close() error
-	Next() (Row, error)
-}
-
-type Row interface {
-	Scan(v interface{}) error
+// Transaction defines the TCL operations on a database.
+type Transaction interface {
+	Commit() error
+	Rollback() error
 }
