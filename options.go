@@ -2,6 +2,8 @@ package data
 
 import (
 	"context"
+
+	"github.com/micro/go-data/model"
 )
 
 type Options struct {
@@ -13,7 +15,7 @@ type Options struct {
 }
 
 type SearchOptions struct {
-	Metadata Metadata
+	Metadata model.Metadata
 	Limit    int64
 	Offset   int64
 }

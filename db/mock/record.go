@@ -4,18 +4,18 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/micro/go-data"
+	"github.com/micro/go-data/model"
 )
 
 type record struct {
 	id       string
 	created  int64
 	updated  int64
-	metadata data.Metadata
+	metadata model.Metadata
 	bytes    []byte
 }
 
-func newRecord(id string, md data.Metadata, data interface{}) data.Record {
+func newRecord(id string, md model.Metadata, data interface{}) model.Record {
 	b, _ := json.Marshal(data)
 
 	return &record{
@@ -38,7 +38,7 @@ func (r *record) Updated() int64 {
 	return r.updated
 }
 
-func (r *record) Metadata() data.Metadata {
+func (r *record) Metadata() model.Metadata {
 	return r.metadata
 }
 

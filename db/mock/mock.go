@@ -6,6 +6,7 @@ import (
 	"sync"
 
 	"github.com/micro/go-data"
+	"github.com/micro/go-data/model"
 )
 
 type mockDB struct {
@@ -13,7 +14,7 @@ type mockDB struct {
 	opts   data.Options
 
 	sync.RWMutex
-	database map[string]data.Record
+	database map[string]model.Record
 }
 
 type mockRecord struct {
@@ -46,7 +47,7 @@ func (m *mockDB) String() string {
 	return "mock"
 }
 
-func (m *mockDB) Read(id string) (data.Record, error) {
+func (m *mockDB) Read(id string) (model.Record, error) {
 	m.RLock()
 	defer m.RUnlock()
 	r, ok := m.database[id]
@@ -56,7 +57,7 @@ func (m *mockDB) Read(id string) (data.Record, error) {
 	return r, nil
 }
 
-func (m *mockDB) Create(r data.Record) error {
+func (m *mockDB) Create(r model.Record) error {
 	m.Lock()
 	defer m.Unlock()
 	if _, ok := m.database[r.Id()]; ok {
@@ -66,7 +67,7 @@ func (m *mockDB) Create(r data.Record) error {
 	return nil
 }
 
-func (m *mockDB) Update(r data.Record) error {
+func (m *mockDB) Update(r model.Record) error {
 	m.Lock()
 	defer m.Unlock()
 	m.database[r.Id()] = r
@@ -80,12 +81,12 @@ func (m *mockDB) Delete(id string) error {
 	return nil
 }
 
-func (m *mockDB) Search(opts ...data.SearchOption) ([]data.Record, error) {
+func (m *mockDB) Search(opts ...data.SearchOption) ([]model.Record, error) {
 	return nil, errors.New("not implemented")
 }
 
 // NewRecord creates a new record
-func NewRecord(id string, md data.Metadata, data interface{}) data.Record {
+func NewRecord(id string, md model.Metadata, data interface{}) model.Record {
 	return newRecord(id, md, data)
 }
 
@@ -98,7 +99,7 @@ func NewDB(opts ...data.Option) data.DB {
 
 	return &mockDB{
 		opts:     options,
-		database: make(map[string]data.Record),
+		database: make(map[string]model.Record),
 		closed:   make(chan bool),
 	}
 }
