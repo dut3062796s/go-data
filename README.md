@@ -20,11 +20,11 @@ The architecture diagram below shows an initial design philosophy for how Go Dat
 
 ## Goals 
 
-Go Data is a framework library that provides standard repository-like abstractions that decouples your application from the underlying storage mechanism. The primary goal of this project is to separate the layer of your business logic from the underlying implementation of your storage and infrastructure. The secondary goal is to support the numerous ORM and OGM plugins in the Go ecosystem using a standard set of conventions.
+Go Data provides standard repository-like (java term) abstractions which decouples an app from the underlying storage. The primary goal is to separate business logic CRUD from storage/infrastructure. This is done via a strongly defined interface and pluggable archittecture.
 
-* Your underlying storage implementation should not be tightly coupled to any business logic or domain model.
-* Repositories are provided as abstract interfaces that provide varying grades of trait-specific capabilities of your data store.
-* Database credentials should be provided as environment variables or fetched from a configuration server that uses strong encryption.
+* Underlying storage should not be tightly coupled to any business logic or domain model.
+* Interfaces provide an abstraction for specific data models e.g kv, graph, document, blob.
+* Auth info should be provided as env variables, flags or pulled from Go Config.
 
 ## Contributing
 
