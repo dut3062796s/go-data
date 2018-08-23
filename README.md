@@ -1,4 +1,4 @@
-# Go Data
+# Go Data [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GoDoc](https://godoc.org/github.com/micro/go-data?status.svg)](https://godoc.org/github.com/micro/go-data)
 
 Go Data is a pluggable framework for data access.
 
