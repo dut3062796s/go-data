@@ -20,7 +20,7 @@ The architecture diagram below shows an initial design philosophy for how Go Dat
 
 ## Goals 
 
-Go Data provides standard repository-like (java term) abstractions which decouples an app from the underlying storage. The primary goal is to separate business logic CRUD from storage/infrastructure. This is done via a strongly defined interface and pluggable archittecture.
+Go Data provides standard repository-like (java term) abstractions which decouples an app from the underlying storage. The primary goal is to separate business logic CRUD from storage/infrastructure. This is done via a strongly defined interface and pluggable architecture.
 
 * Underlying storage should not be tightly coupled to any business logic or domain model.
 * Interfaces provide an abstraction for specific data models e.g kv, graph, document, blob.
