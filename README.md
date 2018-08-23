@@ -1,17 +1,28 @@
 # Go Data
 
-Go Data is a pluggable framework for data access
+Go Data is a framework library that provides standard repository-like abstractions that decouples your application from the underlying storage mechanism. The primary goal of this project is to separate the layer of your business logic from the underlying implementation of your storage and infrastructure. The secondary goal is to support the numerous ORM and OGM plugins in the Go ecosystem using a standard set of conventions.
+
+* Your underlying storage implementation should not be tightly coupled to any business logic or domain model.
+* Repositories are provided as abstract interfaces that provide varying grades of trait-specific capabilities of your data store.
+* Database credentials should be provided as environment variables or fetched from a configuration server that uses strong encryption.
 
 ## Overview
 
-Data access is at the core of most applications. In many instances we want a simplified CRUD experience. 
-In a lot of those cases we don't even want to have to write the CRUD aspect. At times we may have a more 
-low level requirement for graph, doocument or other types of data model. Go Data looks to solve these problems 
-in a single place with a pluggable architecture.
+Data access is at the core of most applications. In many situations we want a simplified CRUD experience—and many ORMs provide this experience for different kinds of databases. What matters most is being able to define the domain model without spending valuable time writing and configuring how these domain models are stored and retrieved from a particular variant of datastore. Also, there are needs for more trait-specific data management capabilities, in addition to basic CRUD repositories.
+
+Go Data looks to solve the problem of separating your domain model from the underlying specifics of your choice of database. The first and only thing you should worry about when writing a microservice that stores data, is creating and wiring together the contract of your domain, without worrying about coupling the application to a specific persistence layer. 
 
 Go Data takes on the Go Micro approach and will include code generation for CRUD in future.
 
-Note: WIP. Much of this will break and change.
+## Architecture
+
+The architecture diagram below shows an initial design philosophy for how Go Data will create layers of abstraction for different kinds of middleware that handle the persistence and querying of data. Over time, we intend to expand this diagram to cover more than just basic types of storage, but also different types of cloud-based stores and event stores.
+
+![https://imgur.com/siZFJL1.png](https://imgur.com/siZFJL1.png)
+
+## Project Status
+
+Go Data is in its early and initial development phase. The project maintainers and commiters are aware of the demand for this kind of library, specifically for microservices written in Go. Please feel free to interact with us using the issue tracker, or to request features that may not already be stated in documentation. 
 
 ## TODO 
 
