@@ -14,7 +14,7 @@ Go Data takes on the Go Micro approach and will include code generation for CRUD
 
 ## Architecture
 
-The architecture diagram below shows an initial design philosophy for how Go Data will create layers of abstraction for different kinds of middleware that handle the persistence and querying of data. Over time, we intend to expand this diagram to cover more than just basic types of storage, but also different types of cloud-based stores and event stores.
+The diagram below shows initial design ideas. This may change. We create packages and interfaces for each kind of data model and layer the abstractions. In time this will include models like blob, graph, document, etc.
 
 ![https://imgur.com/siZFJL1.png](https://imgur.com/siZFJL1.png)
 
