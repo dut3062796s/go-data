@@ -20,7 +20,7 @@ The architecture diagram below shows an initial design philosophy for how Go Dat
 
 ## Goals 
 
-Go Data will provide common abstractions for data access defined as Go interfaces. The primary goal is to separate business logic CRUD from storage/infrastructure. This is done via strongly defined interfaces with a pluggable architecture like Go Micro.
+Go Data will provide common abstractions for data access defined as Go interfaces. The primary goal is to separate business logic CRUD from storage/infrastructure. This is done via strongly defined interfaces with a pluggable architecture.
 
 * Underlying storage should not be tightly coupled to any business logic or domain model.
 * Interfaces provide an abstraction for specific data models e.g kv, graph, document, blob.
