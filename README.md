@@ -6,9 +6,7 @@ Note: This is a WIP
 
 ## Overview
 
-Data is at the core of most applications. In many situations we want a simplified CRUD experience—and many ORMs provide this experience for different kinds of databases. What matters most is being able to define the domain model without spending valuable time writing and configuring how these domain models are stored and retrieved from a particular variant of datastore. Also, there are needs for more trait-specific data management capabilities, in addition to basic CRUD repositories.
-
-Go Data looks to solve the problem of separating your domain model from the underlying specifics of your choice of database. The first and only thing you should worry about when writing a microservice that stores data, is creating and wiring together the contract of your domain, without worrying about coupling the application to a specific persistence layer. 
+Data is at the core of most applications. In a lot of cases we just want simple CRUD access. Many ORMs already provide this functionality however it usually ties you to a specific data model (sql) or database system (mysql). Go Data looks to provide a pluggable framework for data access, separating access models from storage, allowing a number of underlying storage mechanisms to be used. We do this using strongly defined interface in Go with a pluggable architecture. We'll look to support a number of data models including CRUD, blob, graph, key-value, sql. 
 
 Go Data takes on the Go Micro approach and will include code generation for CRUD in future.
 
