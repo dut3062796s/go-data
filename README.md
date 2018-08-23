@@ -6,7 +6,7 @@ Note: This is a WIP
 
 ## Overview
 
-Data access is at the core of most applications. In many situations we want a simplified CRUD experience—and many ORMs provide this experience for different kinds of databases. What matters most is being able to define the domain model without spending valuable time writing and configuring how these domain models are stored and retrieved from a particular variant of datastore. Also, there are needs for more trait-specific data management capabilities, in addition to basic CRUD repositories.
+Data is at the core of most applications. In many situations we want a simplified CRUD experience—and many ORMs provide this experience for different kinds of databases. What matters most is being able to define the domain model without spending valuable time writing and configuring how these domain models are stored and retrieved from a particular variant of datastore. Also, there are needs for more trait-specific data management capabilities, in addition to basic CRUD repositories.
 
 Go Data looks to solve the problem of separating your domain model from the underlying specifics of your choice of database. The first and only thing you should worry about when writing a microservice that stores data, is creating and wiring together the contract of your domain, without worrying about coupling the application to a specific persistence layer. 
 
