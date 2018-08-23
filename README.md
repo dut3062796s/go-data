@@ -1,10 +1,8 @@
 # Go Data
 
-Go Data is a framework library that provides standard repository-like abstractions that decouples your application from the underlying storage mechanism. The primary goal of this project is to separate the layer of your business logic from the underlying implementation of your storage and infrastructure. The secondary goal is to support the numerous ORM and OGM plugins in the Go ecosystem using a standard set of conventions.
+Go Data is a pluggable framework for data access.
 
-* Your underlying storage implementation should not be tightly coupled to any business logic or domain model.
-* Repositories are provided as abstract interfaces that provide varying grades of trait-specific capabilities of your data store.
-* Database credentials should be provided as environment variables or fetched from a configuration server that uses strong encryption.
+Note: This is a WIP
 
 ## Overview
 
@@ -20,9 +18,17 @@ The architecture diagram below shows an initial design philosophy for how Go Dat
 
 ![https://imgur.com/siZFJL1.png](https://imgur.com/siZFJL1.png)
 
-## Project Status
+## Goals 
 
-Go Data is in its early and initial development phase. The project maintainers and commiters are aware of the demand for this kind of library, specifically for microservices written in Go. Please feel free to interact with us using the issue tracker, or to request features that may not already be stated in documentation. 
+Go Data is a framework library that provides standard repository-like abstractions that decouples your application from the underlying storage mechanism. The primary goal of this project is to separate the layer of your business logic from the underlying implementation of your storage and infrastructure. The secondary goal is to support the numerous ORM and OGM plugins in the Go ecosystem using a standard set of conventions.
+
+* Your underlying storage implementation should not be tightly coupled to any business logic or domain model.
+* Repositories are provided as abstract interfaces that provide varying grades of trait-specific capabilities of your data store.
+* Database credentials should be provided as environment variables or fetched from a configuration server that uses strong encryption.
+
+## Contributing
+
+Go Data is a WIP. Contributions welcome.
 
 ## TODO 
 
@@ -33,3 +39,4 @@ Go Data is in its early and initial development phase. The project maintainers a
 - [ ] realtime data interface?
 - [ ] timeseries interface?
 - [ ] search interface? e.g elasticsearch, lucene
+
