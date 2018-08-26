@@ -11,13 +11,19 @@ type Model interface {
 	String() string
 }
 
-// crud represents a data model
+// CRUD is the data model for crud access
 type CRUD interface {
 	Model
 	Read(string) (Record, error)
 	Create(Record) error
 	Update(Record) error
 	Delete(string) error
+}
+
+// Stream is the data model for stream processing
+type Stream interface {
+	Model
+	// TODO: Stream interface
 }
 
 type Metadata map[string]interface{}
