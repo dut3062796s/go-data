@@ -2,9 +2,6 @@
 package mock
 
 import (
-	"errors"
-	"sync"
-
 	"github.com/micro/go-data"
 	"github.com/micro/go-data/model"
 )
@@ -13,8 +10,7 @@ type mockDatabase struct {
 	closed chan bool
 	opts   data.Options
 
-	sync.RWMutex
-	database map[string]model.Record
+	model *mockModel
 }
 
 type mockRecord struct {
@@ -44,45 +40,11 @@ func (m *mockDatabase) Options() data.Options {
 }
 
 func (m *mockDatabase) Model() model.Model {
-	return m
+	return m.model
 }
 
 func (m *mockDatabase) String() string {
 	return "mock"
-}
-
-func (m *mockDatabase) Read(id string) (model.Record, error) {
-	m.RLock()
-	defer m.RUnlock()
-	r, ok := m.database[id]
-	if !ok {
-		return nil, errors.New("record not found")
-	}
-	return r, nil
-}
-
-func (m *mockDatabase) Create(r model.Record) error {
-	m.Lock()
-	defer m.Unlock()
-	if _, ok := m.database[r.Id()]; ok {
-		return errors.New("record already exists")
-	}
-	m.database[r.Id()] = r
-	return nil
-}
-
-func (m *mockDatabase) Update(r model.Record) error {
-	m.Lock()
-	defer m.Unlock()
-	m.database[r.Id()] = r
-	return nil
-}
-
-func (m *mockDatabase) Delete(id string) error {
-	m.Lock()
-	defer m.Unlock()
-	delete(m.database, id)
-	return nil
 }
 
 // NewRecord creates a new record
@@ -98,8 +60,10 @@ func NewDatabase(opts ...data.Option) data.Database {
 	}
 
 	return &mockDatabase{
-		opts:     options,
-		database: make(map[string]model.Record),
-		closed:   make(chan bool),
+		opts:   options,
+		closed: make(chan bool),
+		model: &mockModel{
+			database: make(map[string]model.Record),
+		},
 	}
 }

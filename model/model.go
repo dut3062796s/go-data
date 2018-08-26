@@ -3,6 +3,10 @@ package model
 
 // Model is the basis for a data model
 type Model interface {
+	// Initialise options
+	Init(...Option) error
+	// Get Options
+	Options() Options
 	// Name of the model
 	String() string
 }
@@ -17,6 +21,10 @@ type CRUD interface {
 }
 
 type Metadata map[string]interface{}
+
+type Options struct{}
+
+type Option func(*Options)
 
 type Record interface {
 	Id() string
