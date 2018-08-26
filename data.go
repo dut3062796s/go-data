@@ -5,8 +5,8 @@ import (
 	"github.com/micro/go-data/model"
 )
 
-// DB represents a crud interface
-type DB interface {
+// Database represents a crud interface
+type Database interface {
 	Close() error
 	Init(...Option) error
 	Options() Options
