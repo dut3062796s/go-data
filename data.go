@@ -13,4 +13,12 @@ type Database interface {
 	Model() model.Model
 }
 
+// Dataflow represents a stream interface
+type Dataflow interface {
+	Close() error
+	Init(...Option) error
+	Options() Options
+	Model() model.Model
+}
+
 type Option func(*Options)
