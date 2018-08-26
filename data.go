@@ -7,20 +7,10 @@ import (
 
 // DB represents a crud interface
 type DB interface {
-	CRUD
 	Close() error
 	Init(...Option) error
 	Options() Options
-	String() string
-}
-
-// crud represents a top-level data model
-type CRUD interface {
-	model.CRUD
-	// include Search
-	Search(...SearchOption) ([]model.Record, error)
+	Model() model.Model
 }
 
 type Option func(*Options)
-
-type SearchOption func(*SearchOptions)

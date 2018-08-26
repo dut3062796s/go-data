@@ -43,6 +43,10 @@ func (m *mockDB) Options() data.Options {
 	return m.opts
 }
 
+func (m *mockDB) Model() model.Model {
+	return m
+}
+
 func (m *mockDB) String() string {
 	return "mock"
 }
@@ -79,10 +83,6 @@ func (m *mockDB) Delete(id string) error {
 	defer m.Unlock()
 	delete(m.database, id)
 	return nil
-}
-
-func (m *mockDB) Search(opts ...data.SearchOption) ([]model.Record, error) {
-	return nil, errors.New("not implemented")
 }
 
 // NewRecord creates a new record

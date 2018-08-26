@@ -1,8 +1,15 @@
 // Package model represents the data model
 package model
 
+// Model is the basis for a data model
+type Model interface {
+	// Name of the model
+	String() string
+}
+
 // crud represents a data model
 type CRUD interface {
+	Model
 	Read(string) (Record, error)
 	Create(Record) error
 	Update(Record) error
