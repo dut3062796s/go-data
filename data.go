@@ -10,7 +10,7 @@ type Database interface {
 	Close() error
 	Init(...Option) error
 	Options() Options
-	Model() model.Model
+	Model() model.CRUD
 }
 
 // Dataflow represents a stream interface
@@ -18,7 +18,7 @@ type Dataflow interface {
 	Close() error
 	Init(...Option) error
 	Options() Options
-	Model() model.Model
+	Model() model.Stream
 }
 
 type Option func(*Options)

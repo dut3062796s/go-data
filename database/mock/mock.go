@@ -39,7 +39,7 @@ func (m *mockDatabase) Options() data.Options {
 	return m.opts
 }
 
-func (m *mockDatabase) Model() model.Model {
+func (m *mockDatabase) Model() model.CRUD {
 	return m.model
 }
 
